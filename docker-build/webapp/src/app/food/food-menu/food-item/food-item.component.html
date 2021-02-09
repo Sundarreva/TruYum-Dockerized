@@ -1,0 +1,51 @@
+
+<!-- *ngIf="mask == 'admin'|| ((mask == 'customer' || mask == 'anonymous') && item.active)" -->
+<!-- CARD -->
+<div class="col-12 mt-2">
+<div class="card" >
+  <img class="card-img" src={{item.imgSrc}} />
+  <div class="card-body">
+    <!-- name -->
+    <div class="d-flex justify-content-between">
+      <div class="menu-name">{{item.name}}</div>
+      <div class="menu-price"><i class="fa fa-rupee"></i>{{item.price}}</div>
+    </div>
+    <!-- active -->
+    <div class="d-flex justify-content-between py-1">
+      <div>
+        <span [ngClass]=" mask != 'admin' ? 'd-none' : ''">
+        <span class="badge mr-1"  [ngClass]=" item.active == true ? 'menu-active' : 'menu-inactive'"  >
+          {{item.active == true ? 'Active' : 'InActive'}}</span></span>
+        <span class="menu-course">{{item.category}}</span>
+      </div>
+      <!-- freedelivery -->
+      <div [ngClass]=" item.freeDelivery == true ? '' : 'invisible'">
+        <div><i class="icon-align menu-delivery-icon material-icons">local_shipping</i>&nbsp;
+          <span class="badge menu-delivery">
+            FREE</span>
+        </div>
+      </div>
+    </div>
+    <!-- alert -->
+    <div [ngClass]=" mask != 'admin' ? 'd-none' : ''" class="edit-notification d-flex justify-content-center alert alert-dismissible" *ngIf="added == item.id">
+      Item added successfully
+      <span class="close" data-dismiss="alert">&times;</span>
+    </div>
+    <!-- date and edit -->
+    <div class="mt-2 d-flex justify-content-between">
+      <div class="menu-date"> <span [ngClass]=" mask != 'admin' ? 'd-none' : ''"> <i class="icon-align material-icons">schedule</i>Launch
+        <div>{{item.dateOfLaunch | date: 'dd/MM/yyyy'}}</div> </span>
+      </div>
+      <div class="d-flex justify-content-end">
+        <div [ngClass]=" mask != 'admin' ? 'd-none' : ''"> <button class="btn btn-success m-1" (click)="edit()"> Edit </button> </div>
+      </div>
+    </div>
+    <!-- add to cart -->
+    <div class="py-1">
+      <button (click)="onAddToCartClick(item.id)" class="btn menu-cart" [ngClass]=" mask == 'admin' ? 'd-none' : ''">
+        <i class="icon-align material-icons mr-1">add_shopping_cart</i>Add to Cart
+      </button>
+    </div>
+  </div>
+</div>
+</div>

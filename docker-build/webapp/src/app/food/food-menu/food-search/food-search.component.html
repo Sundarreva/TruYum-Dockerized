@@ -1,0 +1,19 @@
+  
+  <!-- search bar -->
+  <div class="jumbotron search">
+    <div>
+      <div class="text-light mb-1">
+        <label for="search">
+          <h3>Find Food</h3>
+        </label>
+      </div>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <label for="search"><span class="input-group-text" id="basic-addon1"><i
+                class="material-icons">local_cafe</i></span></label>
+        </div>
+        <input type="text" name="search" id="search" class="form-control" [(ngModel)]="searchString" (keyup)="searching()" placeholder="Search food" >
+      </div>
+    </div>
+  </div>
+  

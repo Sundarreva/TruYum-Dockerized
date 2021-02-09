@@ -1,0 +1,95 @@
+/* You can add global styles to this file, and also import other style files */
+/* include stylesheet for truYum */
+
+/* navbar styling */
+.nav-color {
+    background-color: #ff3333;
+    border-radius: 5px;
+}
+.card {
+    border-radius: 10px;
+    background-color: #fffff0;
+}
+
+.icon-align {
+    vertical-align: sub;
+}
+
+/* body */
+div.jumbotron.search {
+    background:url("https://images.unsplash.com/photo-1476224203421-9ac39bcb3327?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80");
+    background-size: cover;
+    background-position: center;
+}
+.user-bg {
+    background:url("https://images.unsplash.com/photo-1498588747262-0f2241707d13?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80");
+}
+
+/* card styling */
+.card-login-signup {
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+.card-img {
+    height: 170px;
+    width: auto;
+}
+.menu-name {
+    color: #737373;
+}
+.menu-price {
+    color:  #cc0000;
+}
+.menu-active {
+    background-color: #2eb82e;
+}
+.menu-inactive {
+    background-color: #e60000;
+    color: #ffffff;
+}
+.menu-course {
+    font-size: 15px;
+    color:  #a6a6a6;
+}
+.menu-delivery-icon {
+    color: #000099;
+}
+.menu-delivery {
+    background-color: #0099ff;
+    color: #ffffff;
+}
+.menu-date {
+    font-size: 13px;
+    color: #a6a6a6;
+}
+.menu-cart {
+    font-size: 14px;
+    background-color: #ff3333;
+    color: #ffffff;
+}
+
+/* edit */
+.edit-notification {
+    background-color: #adebad;
+    color: #006600;
+    border-radius: 4px; 
+}
+.edit-validation-msg {
+    font-size: 12px;
+    color: #ff0000;
+}
+
+/* cart */
+.cart-notification {
+    background-color: #ffb3b3;
+    color: #cc0000;
+    border-radius: 4px;
+}
+.cart-price {
+    color: #cc0000;
+}
+
+/* footer */
+.footer {
+    overflow-y: scroll;
+    display: inline-block;
+}

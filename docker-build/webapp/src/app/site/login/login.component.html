@@ -1,0 +1,87 @@
+<!-- login form -->
+
+<div class="container-fluid user-bg">
+  <div class="container">
+    <div class="row d-flex justify-content-center pt-3">
+      <div class="col-4">
+        <div class="card-login-signup card mt-5">
+          <div class="card-body">
+            <form action="" [formGroup]="login">
+              <div class="form-row mb-3">
+                <h2>Login</h2>
+              </div>
+              <div class="row" [ngClass]=" menuId != 0 ? '' : 'd-none'">
+                  <div class="col">
+                      <div class="edit-notification p-3 my-3">
+                          <div>Please login before adding a item to cart</div>
+                      </div>
+                  </div>
+              </div>
+              <div class="row" *ngIf="validation && login.dirty">
+                  <div class="col">
+                      <div class="cart-notification p-3 my-3">
+                          <div>Invalid Username / Password</div>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group col-12">
+                  <label for="username">Username</label>
+                  <input 
+                  type="text" 
+                  class="form-control" 
+                  name="username" 
+                  id="username" 
+                  [minlength]="3" 
+                  [maxlength]="20"
+                  placeholder="Enter Username" 
+                  formControlName="username" 
+                  required>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col edit-validation-msg"
+                  *ngIf="!login.get('username').valid && login.get('username').dirty">
+                  Minimum 3 characters are required</div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group col-12">
+                  <label for="pwd">Password</label>
+                  <input 
+                  type="password" 
+                  class="form-control" 
+                  name="pwd" id="pwd" 
+                  [minlength]="3" 
+                  [maxlength]="20"
+                  formControlName="password" 
+                  placeholder="Enter password" 
+                  required>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col edit-validation-msg"
+                  *ngIf="!login.get('password').valid && login.get('password').dirty">
+                  Minimum 3 characters are required</div>
+              </div>
+              
+              <div class="form-row d-flex justify-content-between mt-3">
+                <div>
+                  <button type="button" name="submit" [disabled]="!login.valid" class="btn nav-color text-light"
+                    (click)="loggingIn(login.value)">Login</button>
+                </div>
+                <div class="text-secondary">New here? <span><a routerLink="/signup"
+                      routerLinkActive="active-link">Signup</a></span> </div>
+              </div>
+            </form>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</div>

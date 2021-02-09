@@ -1,0 +1,121 @@
+<div class="container-fluid user-bg">
+  <div class="container">
+    <div class="row d-flex justify-content-center">
+      <div class="col-6 mt-3">
+
+          <div class="card">
+            <div class="card-body">
+              <form [formGroup] = "signup">
+                <div class="form-row mb-2">
+                  <h2>Signup</h2>
+                </div>
+
+                <div class="row" *ngIf="error && signup.dirty" >
+                    <div class="col">
+                        <div class="cart-notification p-2 my-2">
+                            <div>User Already Exist</div>
+                        </div>
+                    </div>
+                </div>
+      
+
+                <div class="form-row">
+                  <div class="form-group col-md-6">
+                    <label for="username">Username</label>
+                    <input 
+                    type="text" 
+                    class="form-control" 
+                    name="username" 
+                    id="username"
+                    formControlName="username"
+                    [minlength] = "3"
+                    [maxlength] = "20"
+                    placeholder="Enter Username"
+                    required>
+                  </div>
+                </div>
+                <div class="col edit-validation-msg" *ngIf="!signup.get('username').valid && signup.get('username').dirty">Minimum 3 characters are required</div>
+
+                <div class="form-row">
+                  <div class="form-group col-md-6">
+                    <label for="fname">First Name</label>
+                    <input 
+                    type="text" 
+                    class="form-control" 
+                    name="fname" 
+                    id="fname" 
+                    formControlName="fname"
+                    [minlength] = "3"
+                    [maxlength] = "20"
+                    placeholder="Enter name"
+                    required>
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label for="lname">Last Name</label>
+                    <input 
+                    type="text" 
+                    class="form-control" 
+                    name="lname" 
+                    id="lname" 
+                    formControlName="lname"
+                    [minlength] = "3"
+                    [maxlength] = "20"
+                    placeholder="Enter Lastname"
+                    required>
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="col-md-6 edit-validation-msg" 
+                  *ngIf="!signup.get('fname').valid && signup.get('fname').dirty">
+                    Minimum 3 characters are required</div>
+
+                    <div class="col-md-6 edit-validation-msg" 
+                  *ngIf="!signup.get('lname').valid && signup.get('lname').dirty">
+                    Minimum 3 characters are required</div>
+
+                </div>
+                <div class="form-row">
+                  <div class="form-group col-md-6">
+                    <label for="pwd">Password</label>
+                    <input 
+                    type="password" 
+                    class="form-control" 
+                    name="pwd" 
+                    id="pwd"
+                    formControlName="password"
+                    [minlength] = "3"
+                    [maxlength] = "20" 
+                    placeholder="Enter password"
+                    required>
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label for="cpwd">Confirm Password</label>
+                    <input 
+                    type="password" 
+                    class="form-control" 
+                    name="cpwd" 
+                    id="cpwd" 
+                    formControlName="confirmpassword"
+                    [minlength] = "3"
+                    [maxlength] = "20"
+                    placeholder="Enter password"
+                    required>
+                  </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="col-md-6 edit-validation-msg" 
+                  *ngIf="!signup.get('password').valid && signup.get('password').dirty">
+                    Minimum 3 characters are required</div>
+
+                    <div class="edit-validation-msg col-md-6" *ngIf="(signup.get('password').value != signup.get('confirmpassword').value) && signup.get('confirmpassword').dirty"> password should be same in password field </div>
+                </div>
+                <button type="button" [disabled]= "!signup.valid"  name="submit" (click)="signIn(signup.value)" class="btn nav-color text-light">Signup</button>
+              </form>
+
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>

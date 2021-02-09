@@ -1,0 +1,57 @@
+<!-- CART -->
+<div class="container mt-3">
+    <div class="row">
+        <div class="col-lg-3"></div>
+        <div class="col-lg-5 col-md-12">
+            <h2 class="mb-5"> Cart</h2>
+            <ng-template *ngIf="cartTotal != 0 then cartitem else notification"></ng-template>
+            <ng-template #cartitem>
+                <div class="row" *ngIf="true == deleted">
+                    <div class="col edit-notification p-3 my-3 d-flex justify-content-between">
+                        <div>
+                            <div>Cart Item deleted successfully.</div>
+                        </div>
+                    </div>
+                </div>
+                <ul class="list-group">
+
+                    <li class="list-group-item align-items-center text-secondary" *ngFor="let cart of cart">
+                        <div class="row d-flex justify-content-between pl-3">
+                            <div>{{cart.name}}</div>
+                            <div> <span class="cart-price">Rs. {{cart.price}}.00</span>
+                                <div class="row justify-content-center"> <a (click)="onDeleteClick(cart.id)"><i
+                                            class="material-icons text-secondary">delete_forever</i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+
+                    <!-- total -->
+                    <li class="list-group-item align-items-center">
+                        <div class="row d-flex justify-content-between pl-3">
+                            <div>
+                                <h3>Total</h3>
+                            </div>
+                            <div class="cart-price font-weight-bold">Rs. {{cartTotal}}.00 </div>
+                        </div>
+                    </li>
+                </ul>
+            </ng-template>
+
+        </div>
+        <div class="col-lg-3"></div>
+        <ng-template #notification>
+            <div class="row p-3 cart-notification alert alert-dismissible">
+                <div class="d-flex justify-content-between">
+                    <div class="col-12">
+                        No items in cart. use 'Add to cart' option in menu item list.
+                    </div>
+                    <div>
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    </div>
+                </div>
+            </div>
+        </ng-template>
+    </div>
+</div>

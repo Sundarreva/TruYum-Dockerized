@@ -1,0 +1,26 @@
+<!-- search -->
+<app-food-search (search)=filterData($event)></app-food-search>
+
+<!-- CARD ITEMS -->
+<div class="container-fluid">
+    <div class="row" [ngClass]="saveStatus == 'saved' ? '' : 'd-none'">
+      <div class="col-1"></div>
+        <div class="col">
+            <div class="edit-notification p-3 my-3">
+                <div>Item saved successfully</div>
+            </div>
+        </div>
+        <div class="col-1"></div>
+    </div>
+  <div class="row my-4 pl-4">
+    <div class="col-1"></div>
+    <div class="col-10">
+      <div class="row">
+        <div *ngFor="let menu of filteredFood">
+          <app-food-item [item]="menu" [added]="foodId" [mask]="status()" (addItem)="add($event)" (editItem)="edit($event)"></app-food-item>
+        </div>
+      </div>
+    </div>
+    <div class="col-1"></div>
+  </div>
+</div>
